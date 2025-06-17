@@ -1,0 +1,21 @@
+<nav class="app-sidebar">
+  <ul>
+    <li routerLink="/{{ authService.getUserRole()?.toLowerCase() }}/dashboard">Dashboard</li>
+
+    <ng-container *ngIf="authService.getUserRole() === 'Admin'">
+      <li routerLink="/admin/customers">Customers</li>
+      <li routerLink="/admin/products">Products</li>
+      <li routerLink="/admin/transactions">Transactions</li>
+      <li routerLink="/admin/reports">Reports</li>
+    </ng-container>
+
+    <ng-container *ngIf="authService.getUserRole() === 'Employee'">
+      <li routerLink="/employee/make-sale">Make Sale</li>
+      <li routerLink="/employee/add-customer">Add Customer</li>
+      <li routerLink="/employee/view-products">View Products</li>
+    </ng-container>
+
+    <li (click)="authService.logout()">Logout</li>
+  </ul>
+</nav>
+

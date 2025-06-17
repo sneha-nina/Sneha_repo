@@ -1,0 +1,28 @@
+<h2>Add New Customer</h2>
+
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Name:</label>
+    <input formControlName="name" type="text" />
+  </div>
+
+  <div>
+    <label>Email:</label>
+    <input formControlName="email" type="email" />
+  </div>
+
+  <div>
+    <label>Phone:</label>
+    <input formControlName="phone" type="text" />
+  </div>
+
+  <div>
+    <label>Address:</label>
+    <textarea formControlName="address"></textarea>
+  </div>
+
+  <button type="submit">Add Customer</button>
+</form>
+
+<div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>

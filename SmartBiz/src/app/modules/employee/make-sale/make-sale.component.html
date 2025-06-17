@@ -1,0 +1,34 @@
+<h2>Record a New Sale</h2>
+
+<form [formGroup]="saleForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Customer Name:</label>
+    <input formControlName="customerName" type="text" />
+  </div>
+
+  <div>
+    <label>Product:</label>
+    <select formControlName="productId">
+      <option value="">-- Select Product --</option>
+      <option *ngFor="let product of products" [value]="product.id">{{ product.name }}</option>
+    </select>
+  </div>
+
+  <div>
+    <label>Quantity:</label>
+    <input formControlName="quantity" type="number" />
+  </div>
+
+  <div>
+    <label>Payment Status:</label>
+    <select formControlName="paymentStatus">
+      <option value="Paid">Paid</option>
+      <option value="Pending">Pending</option>
+    </select>
+  </div>
+
+  <button type="submit">Record Sale</button>
+</form>
+
+<div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>

@@ -1,0 +1,7 @@
+<header class="app-header">
+  <h1>SmartBiz Digital Ledger</h1>
+  <div class="header-right">
+    <span>Welcome, {{ authService.getUserName() }} ({{ authService.getUserRole() }})</span>
+    <button (click)="logout()">Logout</button>
+  </div>
+</header>
