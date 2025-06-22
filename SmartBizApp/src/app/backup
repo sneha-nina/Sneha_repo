@@ -1,0 +1,22 @@
+<h2>New Sale Transaction</h2>
+
+<form (ngSubmit)="addSale()" #saleForm="ngForm">
+  <label>Customer:</label>
+  <select [(ngModel)]="selectedCustomer" name="customer" required>
+    <option *ngFor="let customer of customers" [value]="customer.name">{{ customer.name }}</option>
+  </select>
+
+  <label>Product:</label>
+  <select [(ngModel)]="selectedProduct" name="product" required (change)="updatePrice()">
+    <option *ngFor="let product of products" [value]="product.itemName">{{ product.itemName }}</option>
+  </select>
+
+  <label>Quantity:</label>
+  <input type="number" [(ngModel)]="quantity" name="quantity" required min="1" (input)="updatePrice()" />
+
+  <div class="price-display">
+    <p><strong>Total Price: ₹{{ totalPrice }}</strong></p>
+  </div>
+
+  <button type="submit">Confirm Sale</button>
+</form>

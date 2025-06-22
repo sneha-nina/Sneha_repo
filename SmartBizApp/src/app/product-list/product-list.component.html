@@ -1,0 +1,40 @@
+<div class="product-container">
+  <h2>Product / Item List</h2>
+
+  <div class="search-bar">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      (input)="searchProducts()"
+      placeholder="🔍 Search Products..."
+    />
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Item Name</th>
+        <th>Price (₹)</th>
+        <th>Stock Quantity</th>
+        <th *ngIf="canEditOrDelete()">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of filteredProducts">
+        <td>{{ product.id }}</td>
+        <td>{{ product.itemName }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.stockQuantity }}</td>
+        <td *ngIf="canEditOrDelete()">
+          <button (click)="editProduct(product)">✏️ Edit</button>
+          <button (click)="deleteProduct(product.id)">❌ Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="list-header">
+  <button class="back-btn" (click)="goBack()">← Back to Dashboard</button>
+</div>

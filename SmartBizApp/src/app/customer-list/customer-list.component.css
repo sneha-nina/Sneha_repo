@@ -1,0 +1,61 @@
+.customer-container {
+  margin: 20px;
+}
+
+.customer-container h2 {
+  text-align: center;
+  color: #003366;
+}
+
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #003366;
+  color: #fff;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.back-btn {
+  padding: 10px 20px;
+  background: var(--gradient);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-bottom: 16px;
+}
+
+.back-btn:hover {
+  background: linear-gradient(135deg, #EC4899, #4F46E5);
+  transform: translateY(-2px);
+}
+.list-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.search-bar {
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.search-bar input {
+  padding: 8px 12px;
+  width: 250px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}

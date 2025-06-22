@@ -1,0 +1,14 @@
+<h2>Add New Product</h2>
+
+<form (ngSubmit)="addProduct()" #productForm="ngForm">
+  <label>Item Name:</label>
+  <input type="text" [(ngModel)]="newProduct.itemName" name="itemName" required />
+
+  <label>Price (₹):</label>
+  <input type="number" [(ngModel)]="newProduct.price" name="price" required min="1" />
+
+  <label>Stock Quantity:</label>
+  <input type="number" [(ngModel)]="newProduct.stockQuantity" name="stock" required min="0" />
+
+  <button type="submit">Add Product</button>
+</form>

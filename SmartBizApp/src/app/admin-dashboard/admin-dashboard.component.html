@@ -1,0 +1,62 @@
+<div class="dashboard-container">
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <h3>SmartBiz Ledger</h3>
+    <nav>
+      <ul>
+        <li><a routerLink="/admin-dashboard" routerLinkActive="active">🏠 Dashboard</a></li>
+        <li><a routerLink="/admin-dashboard/customers" routerLinkActive="active">👥 Customers</a></li>
+        <li><a routerLink="/admin-dashboard/products" routerLinkActive="active">📦 Products</a></li>
+        <li><a routerLink="/admin-dashboard/transactions" routerLinkActive="active">💳 Transactions</a></li>
+        <li><a routerLink="/admin-dashboard/reports" routerLinkActive="active">📊 Reports</a></li>
+        <li><a (click)="logout()">🚪 Logout</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="main-content">
+    <h2>Welcome, {{ adminName }} (Admin)</h2>
+
+    <!-- Overview Cards -->
+    <div class="overview-cards">
+
+      <div class="card">
+        <h3>Total Customers</h3>
+        <p>{{ totalCustomers }}</p>
+      </div>
+
+      <div class="card">
+        <h3>Total Products</h3>
+        <p>{{ totalProducts }}</p>
+      </div>
+
+      <div class="card">
+        <h3>Total Sales Made</h3>
+        <p>₹{{ totalSalesAmount }}</p>
+      </div>
+
+      <div class="card">
+        <h3>Outstanding Payments</h3>
+        <p>₹{{ totalOutstanding }}</p>
+      </div>
+
+    </div>
+
+    <!-- Quick Action Buttons -->
+    <div class="quick-links">
+
+      <button routerLink="/admin-dashboard/add-customer">➕ Add New Customer</button>
+      <button routerLink="/admin-dashboard/add-product">➕ Add New Product</button>
+      <button routerLink="/admin-dashboard/add-sale">💵 Make Sale (Billing)</button>
+      <button routerLink="/admin-dashboard/transactions">💳 View All Transactions</button>
+      <button routerLink="/admin-dashboard/reports">📊 View Reports</button>
+
+    </div>
+
+    <!-- Routed Content -->
+    <router-outlet></router-outlet>
+  </main>
+
+</div>

@@ -1,0 +1,17 @@
+.app-header {
+  background: var(--gradient);
+  color: white;
+  padding: 24px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 34px;
+  letter-spacing: 1px;
+}
+
+.app-content {
+  padding: 20px;
+}

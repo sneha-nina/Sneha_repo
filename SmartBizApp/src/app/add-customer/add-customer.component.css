@@ -1,0 +1,66 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 80px);
+  padding: 20px;
+}
+
+.customer-form {
+  background: var(--card-bg);
+  padding: 30px 40px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  animation: fadeInUp 0.5s ease;
+}
+
+.customer-form h2 {
+  margin-bottom: 24px;
+  color: var(--primary-color);
+}
+
+.customer-form div {
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.customer-form label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.customer-form input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.actions button {
+  padding: 12px 20px;
+  background: var(--gradient);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.actions button:hover {
+  background: linear-gradient(135deg, #EC4899, #4F46E5);
+  transform: translateY(-2px);
+}

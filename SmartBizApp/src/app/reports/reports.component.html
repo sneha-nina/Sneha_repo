@@ -1,0 +1,22 @@
+<h2>📊 Business Reports</h2>
+
+<div class="report-cards">
+
+  <div class="report-card">
+    <h3>Daily Sales Report</h3>
+    <p>Total Sales Today: ₹{{ dailySalesAmount }}</p>
+  </div>
+
+  <div class="report-card">
+    <h3>Customer Summary</h3>
+    <p>Total Customers: {{ totalCustomers }}</p>
+  </div>
+
+  <div class="report-card">
+    <h3>Product Performance</h3>
+    <div *ngFor="let product of productPerformance">
+      <p><strong>{{ product.itemName }}</strong>: Sold {{ product.sold }}, Stock Remaining: {{ product.remainingStock }}</p>
+    </div>
+  </div>
+
+</div>

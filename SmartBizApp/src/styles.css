@@ -1,0 +1,45 @@
+:root {
+  --primary-color: #4C74F9;
+  --accent-color: #FF9F43;
+  --text-color: #333;
+  --background-color: #f7f9fc;
+  --card-bg: #ffffff;
+  --border-radius: 16px;
+  --shadow: 0 4px 12px rgba(0,0,0,0.08);
+  --font-family: 'Poppins', sans-serif;
+  --gradient: linear-gradient(135deg, #4C74F9, #7BAAF7);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+:root {
+  --primary-color: #4F46E5;
+  --accent-color: #EC4899;
+  --text-color: #1F2937;
+  --background-color: #F3F4F6;
+  --card-bg: #FFFFFF;
+  --border-radius: 14px;
+  --shadow: 0 4px 12px rgba(0,0,0,0.08);
+  --gradient: linear-gradient(135deg, #4F46E5, #EC4899);
+  --font-family: 'Poppins', sans-serif;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

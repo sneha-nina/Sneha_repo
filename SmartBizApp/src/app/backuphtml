@@ -1,0 +1,55 @@
+<h2>New Sale Transaction</h2>
+
+<div>
+  <label>Customer:</label>
+  <select [(ngModel)]="selectedCustomer" name="customer">
+    <option value="" disabled selected>Select Customer</option>
+    <option *ngFor="let customer of customers" [value]="customer.name">{{ customer.name }}</option>
+  </select>
+</div>
+
+<div>
+  <label>Product:</label>
+  <select [(ngModel)]="selectedProductId" name="product">
+    <option value="" disabled selected>Select Product</option>
+    <option *ngFor="let product of products" [value]="product.id">
+      {{ product.itemName }} (₹{{ product.price }}) - Stock: {{ product.stockQuantity }}
+    </option>
+  </select>
+</div>
+
+<div>
+  <label>Quantity:</label>
+  <input type="number" [(ngModel)]="quantity" min="1" />
+</div>
+
+<button (click)="addItemToBill()">Add Item</button>
+
+<hr>
+
+<h3>Bill Summary</h3>
+<table *ngIf="currentBillItems.length > 0">
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Qty</th>
+      <th>Price (₹)</th>
+      <th>Total (₹)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of currentBillItems">
+      <td>{{ item.itemName }}</td>
+      <td>{{ item.quantity }}</td>
+      <td>₹{{ item.price }}</td>
+      <td>₹{{ item.total }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 *ngIf="billTotal > 0">Total: ₹{{ billTotal }}</h3>
+
+<div class="actions">
+  <button *ngIf="currentBillItems.length > 0" (click)="finishBilling()">✅ Finish</button>
+  <button (click)="cancelBilling()">🔙 Back</button>
+</div>

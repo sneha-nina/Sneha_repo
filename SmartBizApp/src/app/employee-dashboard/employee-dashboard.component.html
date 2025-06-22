@@ -1,0 +1,40 @@
+<div class="dashboard-container">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h3>SmartBiz Ledger</h3>
+    <nav>
+      <ul>
+        <li><a routerLink="/employee-dashboard" routerLinkActive="active">📊 Dashboard</a></li>
+        <li><a routerLink="/employee-dashboard/add-sale" routerLinkActive="active">💵 Make Sale</a></li>
+        <li><a routerLink="/employee-dashboard/add-customer" routerLinkActive="active">👥 Add Customer</a></li>
+        <li><a routerLink="/employee-dashboard/products" routerLinkActive="active">📦 View Products</a></li>
+        <li><a (click)="logout()">🚪 Logout</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <h2>Welcome, {{ username }}!</h2>
+    <p>Please select an action below:</p>
+
+    <div class="quick-actions">
+      <button routerLink="/employee-dashboard/add-sale">💵 Add New Transaction / Sale</button>
+      <button routerLink="/employee-dashboard/customers">👥 View Customer List</button>
+      <button routerLink="/employee-dashboard/add-customer">➕ Add New Customer</button>
+      <button routerLink="/employee-dashboard/products">📦 View Item List</button>
+    </div>
+
+    <div class="sales-summary">
+      <h3>Total Sales Summary</h3>
+      <div class="summary-card">
+        <p>Total Sales Amount:</p>
+        <h2>₹{{ totalSalesAmount }}</h2>
+      </div>
+    </div>
+
+    <router-outlet></router-outlet>
+  </main>
+
+</div>

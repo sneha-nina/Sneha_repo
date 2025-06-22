@@ -1,0 +1,40 @@
+<div class="customer-container">
+  <h2>Customer List</h2>
+
+  <div class="search-bar">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      (input)="searchCustomers()"
+      placeholder="🔍 Search Customers..."
+    />
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Mobile</th>
+        <th>Address</th>
+        <th *ngIf="canEditOrDelete()">Actions</th>  <!-- Added Action header -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of filteredCustomers">
+        <td>{{ customer.id }}</td>
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.mobile }}</td>
+        <td>{{ customer.address }}</td>
+        <td *ngIf="canEditOrDelete()">
+          <button (click)="editCustomer(customer)">✏️ Edit</button>
+          <button (click)="deleteCustomer(customer.id)">❌ Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="list-header">
+    <button class="back-btn" (click)="goBack()">← Back to Dashboard</button>
+  </div>
+</div>
