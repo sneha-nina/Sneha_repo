@@ -1,0 +1,83 @@
+<div class="student-container">
+  <h2>Student Management</h2>
+
+  <!-- Add Student Form -->
+  <div class="card">
+    <h3>Add Student</h3>
+    <form [formGroup]="addStudentForm" (ngSubmit)="addStudent()">
+      <label>Name:</label>
+      <input type="text" formControlName="name">
+      <label>Email:</label>
+      <input type="email" formControlName="email">
+      <label>Age:</label>
+      <input type="number" formControlName="age">
+      <button type="submit" [disabled]="addStudentForm.invalid">Add Student</button>
+    </form>
+  </div>
+
+  <!-- Get Student by ID -->
+  <div class="card">
+    <h3>Get Student by ID</h3>
+    <form [formGroup]="getStudentForm" (ngSubmit)="getStudentById()">
+      <label>Student ID:</label>
+      <input type="number" formControlName="id">
+      <button type="submit" [disabled]="getStudentForm.invalid">Fetch Student</button>
+    </form>
+
+    <div *ngIf="studentDetails" class="result-card">
+      <h4>Student Details:</h4>
+      <p><strong>ID:</strong> {{studentDetails.id}}</p>
+      <p><strong>Name:</strong> {{studentDetails.name}}</p>
+      <p><strong>Email:</strong> {{studentDetails.email}}</p>
+      <p><strong>Age:</strong> {{studentDetails.age}}</p>
+    </div>
+  </div>
+
+  <!-- Get All Students -->
+  <div class="card">
+    <h3>All Students</h3>
+    <button (click)="getStudents()">Get All Students</button>
+
+    <table *ngIf="students.length > 0">
+      <thead>
+        <tr>
+          <th>ID</th><th>Name</th><th>Email</th><th>Age</th><th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of students">
+          <td>{{s.id}}</td>
+          <td>{{s.name}}</td>
+          <td>{{s.email}}</td>
+          <td>{{s.age}}</td>
+          <td>
+            <button (click)="deleteStudentById(s.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Edit / Update Student -->
+  <div class="card">
+    <h3>Edit Student by ID</h3>
+
+    <label>Student ID:</label>
+    <input type="number" #editIdInput>
+    <button (click)="fetchStudentForEdit(editIdInput.valueAsNumber)">Fetch Student</button>
+
+    <form [formGroup]="editStudentForm" (ngSubmit)="updateStudentById()">
+      <label>Name:</label>
+      <input type="text" formControlName="name">
+      <label>Email:</label>
+      <input type="email" formControlName="email">
+      <label>Age:</label>
+      <input type="number" formControlName="age">
+      <button type="submit" [disabled]="editStudentForm.invalid">Update</button>
+
+    </form>
+  </div>
+
+</div>
+
+<router-outlet></router-outlet>
